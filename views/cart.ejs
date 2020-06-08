@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<nav class="navbar navbar-expand-lg  bg-light fixed-top navbar-fixed-top" style="background-color: cyan!important">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="/">
+                <img src="/assets/img/logo/logo.png" alt="">
+            </a>
+        </div>
+        <form class="form-inline">
+           
+          </form>
+                <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span> Giỏ hàng</a></li>
+                        <%if (user==null) { %>
+                            <li><a href="/users/login"><span class="glyphicon glyphicon-log-in"></span> Đăng Nhập</a></li>
+                        <% }else  { %>
+                            <li><a href="/users/logout"><span class="glyphicon glyphicon-log-out"></span> Đăng Xuất</a></li>
+                        <% } %>
+                </ul>
+                
+    </div>
+</nav>
+<body>
+    <div class="container">
+        <br><br><br>
+        <h1 style=" margin-left: 150px; "><%=title%></h1>
+        <br>
+        <%if (products!=null) { %>
+        <div style=" margin-left: 150px; margin-right: 150px;"class="cart page">
+            <ul class="list-group">
+                <% for(let p of products) {%>  
+                <li class="list-group-item clearfix">
+                    <div class="col-xs-5">
+                        <strong><%=p.item.title%> </strong><br />
+                        <em><img style="max-width: 100px;" src="<%=p.item.imageURL%>" alt=""></em>
+                    </div>
+                    <div class="col-xs-2 text-right">
+                        <%=p.quantity%>
+                    </div>
+                    <div class="col-xs-3 text-right">
+                        $<%=p.item.price%>
+                    </div>
+                    <div class="col-xs-2 text-right">
+                        <a href="/remove/<%=p.item._id%>" class="btn btn-danger"></i> Remove</a>
+                    </div>
+                    
+                </li>
+                <hr>
+                <%
+            }
+            %>
+            
+            </ul>
+        </div>
+        <div style=" margin-left: 150px; margin-right: 150px;"class="text-right">
+            <strong>Total: $<%=totalPrice%></strong>
+        </div>
+        <hr>
+        <div style=" margin-left: 150px; margin-right: 150px;"class="text-right">
+            <a href="/cart/checkout" type="button" class="btn btn-success">Checkout</a>
+        </div>
+    </div>
+    <% }else  if (products==null) { %>
+        Your cart is empty
+    <% } %>
+</body>

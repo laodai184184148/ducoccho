@@ -1,0 +1,556 @@
+<%- include('admin_layouts/navbar.ejs')%>
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* The Modal (background) */
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        padding-top: 100px;
+        /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+    <body>
+        
+            <!-- Page Content -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <%- include('admin_layouts/navbar_left.ejs')%>
+                      </div>
+                        <div class="col-lg-9">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h2>Add Product</h2>
+                                        <div id="BiaModal" class="modal">
+                                            <!-- Modal content -->
+                                            <div class="modal-content">
+                                                <span class="close">&times;</span>
+                                                <h1>CREATE BEER PRODUCT</h1>
+                                                <form action="/admin/add-product" method="POST">
+                                                <div class="form-group">
+                                                    <label for="Title">Title</label>
+                                                    <input class="form-control" id="title" name="title">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="imageURL">Image URL</label>
+                                                    <input class="form-control" id="imageURL" name="imageURL">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="category">Category</label>
+                                                    <input class="form-control" id="cat" name="cat" value="Bia" readonly="true">
+                                                    <input type="hidden"class="form-control" id="category" name="category" value="beer" readonly="true">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="price">Price</label>
+                                                    <input class="form-control" id="price" name="price">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="brand">Brand</label>
+                                                    <input class="form-control" id="brand" name="brand">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="alcohol">Alcohol</label>
+                                                    <input class="form-control" id="alcohol" name="alcohol">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="volume">Volume</label>
+                                                    <input class="form-control" id="volume" name="volume">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="ingredient">IngredientL</label>
+                                                    <input class="form-control" id="ingredient" name="ingredient">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="special">Special</label>
+                                                    <input class="form-control" id="special" name="special">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="careful">Careful</label>
+                                                    <input class="form-control" id="careful" name="careful">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="policy">Policy</label>
+                                                    <input class="form-control" id="policy" name="policy">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="description">Description</label>
+                                                    <textarea class="form-control" name="description" id="description"></textarea>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                                                            </form>
+                                            </div>
+                                    
+                                        </div> 
+                                        <div id="NgotModal" class="modal">
+                                            <!-- Modal content -->
+                                            <div class="modal-content">
+                                                <span class="close">&times;</span>
+                                                <h1>CREATE Soft Drink PRODUCT</h1>
+                                                <form action="/admin/add-product" method="POST">
+                                                <div class="form-group">
+                                                    <label for="Title">Title</label>
+                                                    <input class="form-control" id="title" name="title">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="imageURL">Image URL</label>
+                                                    <input class="form-control" id="imageURL" name="imageURL">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="category">Category</label>
+                                                    <input class="form-control" id="cat" name="cat" value="Nước Ngọt" readonly="true">
+                                                    <input type="hidden"class="form-control" id="category" name="category" value="softdrind" readonly="true">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="price">Price</label>
+                                                    <input class="form-control" id="price" name="price">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="brand">Brand</label>
+                                                    <input class="form-control" id="brand" name="brand">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="madein">Made in</label>
+                                                    <input class="form-control" id="madein" name="madein">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="volume">Volume</label>
+                                                    <input class="form-control" id="volume" name="volume">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="cachdung">Cach dung</label>
+                                                    <input class="form-control" id="cachdung" name="cachdung">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="ingredient">IngredientL</label>
+                                                    <input class="form-control" id="ingredient" name="ingredient">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="special">Special</label>
+                                                    <input class="form-control" id="special" name="special">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="careful">Careful</label>
+                                                    <input class="form-control" id="careful" name="careful">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="policy">Policy</label>
+                                                    <input class="form-control" id="policy" name="policy">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="description">Description</label>
+                                                    <textarea class="form-control" name="description" id="description"></textarea>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                                                            </form>
+                                            </div>
+                                        </div> 
+                                        <div id="nuocSuoiModal" class="modal">
+                                            <!-- Modal content -->
+                                            <div class="modal-content">
+                                                <span class="close">&times;</span>
+                                                <h1>CREATE WATER DRINK PRODUCT</h1>
+                                                <form action="/admin/add-product" method="POST">
+                                                <div class="form-group">
+                                                    <label for="Title">Title</label>
+                                                    <input class="form-control" id="title" name="title">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="imageURL">Image URL</label>
+                                                    <input class="form-control" id="imageURL" name="imageURL">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="category">Category</label>
+                                                    <input class="form-control" id="cat" name="cat" value="Nước Lọc" readonly="true">
+                                                    <input type="hidden"class="form-control" id="category" name="category" value="water" readonly="true">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="price">Price</label>
+                                                    <input class="form-control" id="price" name="price">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="brand">Brand</label>
+                                                    <input class="form-control" id="brand" name="brand">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="madein">Made in</label>
+                                                    <input class="form-control" id="madein" name="madein">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="volume">Volume</label>
+                                                    <input class="form-control" id="volume" name="volume">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="ingredient">Ingredient</label>
+                                                    <input class="form-control" id="ingredient" name="ingredient">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="special">Special</label>
+                                                    <input class="form-control" id="special" name="special">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="quantity">quantity</label>
+                                                    <input class="form-control" id="quantity" name="quantity">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="policy">Policy</label>
+                                                    <input class="form-control" id="policy" name="policy">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="description">Description</label>
+                                                    <textarea class="form-control" name="description" id="description"></textarea>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                                                            </form>
+                                            </div>
+                                        </div> 
+                                        <div id="otherDrinkModal" class="modal">
+                                            <!-- Modal content -->
+                                            <div class="modal-content">
+                                                <span class="close">&times;</span>
+                                                <h1>CREATE ORTHER DRINK TYPE PRODUCT</h1>
+                                                <form action="/admin/add-product" method="POST">
+                                                <div class="form-group">
+                                                    <label for="Title">Title</label>
+                                                    <input class="form-control" id="title" name="title">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="imageURL">Image URL</label>
+                                                    <input class="form-control" id="imageURL" name="imageURL">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="category">Category</label>
+                                                    
+                                                    <input class="form-control" id="cat" name="cat" value="Các Loại Nước Khác" readonly="true">
+                                                    <input type="hidden"class="form-control" id="category" name="category" value="otherdrink" readonly="true">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="price">Price</label>
+                                                    <input class="form-control" id="price" name="price">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="brand">Brand</label>
+                                                    <input class="form-control" id="brand" name="brand">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="madein">Made in</label>
+                                                    <input class="form-control" id="madein" name="madein">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="congdung">Cong dung</label>
+                                                    <input class="form-control" id="congdung" name="congdung">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="ingredient">Ingredient</label>
+                                                    <input class="form-control" id="ingredient" name="ingredient">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="cachdung">Cach dung</label>
+                                                    <input class="form-control" id="cachdung" name="cachdung">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="lieudung">Lieu Dung</label>
+                                                    <input class="form-control" id="lieudung" name="lieudung">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="careful">Careful</label>
+                                                    <input class="form-control" id="careful" name="careful">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="weight">weight</label>
+                                                    <input class="form-control" id="weight" name="weight">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="description">Description</label>
+                                                    <textarea class="form-control" name="description" id="description"></textarea>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                                                            </form>
+                                            </div>
+                                    
+                                        </div> 
+                                        <div id="milkModal" class="modal">
+                                            <!-- Modal content -->
+                                            <div class="modal-content">
+                                                <span class="close">&times;</span>
+                                                <h1>CREATE Milk PRODUCT</h1>
+                                                <form action="/admin/add-product" method="POST">
+                                                <div class="form-group">
+                                                    <label for="Title">Title</label>
+                                                    <input class="form-control" id="title" name="title">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="imageURL">Image URL</label>
+                                                    <input class="form-control" id="imageURL" name="imageURL">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="category">Category</label>
+                                                    
+                                                    <input class="form-control" id="cat" name="cat" value="Sữa Tươi" readonly="true">
+                                                    <input type="hidden"class="form-control" id="category" name="category" value="milk" readonly="true">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="price">Price</label>
+                                                    <input class="form-control" id="price" name="price">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="brand">Brand</label>
+                                                    <input class="form-control" id="brand" name="brand">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="madein">Made in</label>
+                                                    <input class="form-control" id="madein" name="madein">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="huongdan">Huong Dan</label>
+                                                    <input class="form-control" id="huongdan" name="huongdan">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="ingredient">Ingredient</label>
+                                                    <input class="form-control" id="ingredient" name="ingredient">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="doituong">Doi Tuong</label>
+                                                    <input class="form-control" id="doituong" name="doituong">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="weight">Volume</label>
+                                                    <input class="form-control" id="weight" name="weight">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="type">Type</label>
+                                                    <input class="form-control" id="type" name="type">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="description">Description</label>
+                                                    <textarea class="form-control" name="description" id="description"></textarea>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                                                            </form>
+                                            </div>
+                                    
+                                        </div> 
+                                        <div id="milkdacModal" class="modal">
+                                            <!-- Modal content -->
+                                            <div class="modal-content">
+                                                <span class="close">&times;</span>
+                                                <h1>CREATE Milk Dac PRODUCT</h1>
+                                                <form action="/admin/add-product" method="POST">
+                                                <div class="form-group">
+                                                    <label for="Title">Title</label>
+                                                    <input class="form-control" id="title" name="title">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="imageURL">Image URL</label>
+                                                    <input class="form-control" id="imageURL" name="imageURL">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="category">Category</label>
+                                               
+                                                    <input class="form-control" id="cat" name="cat" value="Sữa Đặc" readonly="true">
+                                                    <input type="hidden"class="form-control" id="category" name="category" value="milkdac" readonly="true">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="price">Price</label>
+                                                    <input class="form-control" id="price" name="price">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="brand">Brand</label>
+                                                    <input class="form-control" id="brand" name="brand">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="madein">Made in</label>
+                                                    <input class="form-control" id="madein" name="madein">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="dodam">Do Dam</label>
+                                                    <input class="form-control" id="dodam" name="dodam">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="ingredient">Ingredient</label>
+                                                    <input class="form-control" id="ingredient" name="ingredient">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="doituong">Doi Tuong</label>
+                                                    <input class="form-control" id="doituong" name="doituong">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="weight">Volume</label>
+                                                    <input class="form-control" id="weight" name="weight">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="type">Type</label>
+                                                    <input class="form-control" id="type" name="type">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="description">Description</label>
+                                                    <textarea class="form-control" name="description" id="description"></textarea>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                                </form>
+                                            </div>
+                                    
+                                        </div> 
+                                        <div class="container">                             
+                                            <div class="dropdown">
+                                              <button class="btn btn-default " type="button" data-toggle="dropdown">Select Category
+                                              <span class="caret"></span></button>
+                                              <ul class="dropdown-menu">
+                                                <li>
+                                                    <a class="test" tabindex="-1" href="#">Đồ Uống <span class="caret"></span></a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a tabindex="-1" href="#bia">Bia</a></li>
+                                                        <li><a tabindex="-1" href="#nuocngot">Nước Ngọt</a></li>
+                                                        <li><a tabindex="-1" href="#nuocsuoi">Nước Suối,Nước Khoáng </a></li>
+                                                        <li><a tabindex="-1" href="#nuoceptraicay">Nước ép trái cây </a></li>
+                                                        <li><a tabindex="-1" href="#douongkhac">Đồ uống khác </a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                  <a class="test" tabindex="-1" href="#">Sữa Các Loại <span class="caret"></span></a>
+                                                  <ul class="dropdown-menu">
+                                                    <li><a tabindex="-1" href="#suatuoi" >Sữa Tươi</a></li>
+                                                    <li><a tabindex="-1" href="#suadac">Sữa Đặc</a></li>
+                                                    
+                                                  </ul>
+                                                </li>
+                                              </ul>
+                                            </div>
+                                        </div>
+                                        <!-- <form action="/admin/add-product" method="POST">
+                                            <div class="form-group">
+                                                <label for="title">Title</label>
+                                                <input class="form-control" id="title" name="title">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="price">Price</label>
+                                                <input class="form-control" id="price" name="price">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="imageURL">Image URL</label>
+                                                <input class="form-control" id="imageURL" name="imageURL">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="description">Description</label>
+                                                <textarea class="form-control" name="description" id="description"></textarea>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </form> -->
+                                        <script>
+                                            // Get the modal
+                                            var biamodal = document.getElementById("BiaModal");
+                                            var nuocngot = document.getElementById("NgotModal");
+                                            var nuocSuoiModal = document.getElementById("nuocSuoiModal");
+                                            var otherDrinkModal = document.getElementById("otherDrinkModal");
+                                            var milkModal = document.getElementById("milkModal");
+                                            var milkdacModal = document.getElementById("milkdacModal");
+                                    
+                                            // When the user clicks anywhere outside of the modal, close it
+                                            window.onclick = function (event) {
+                                                if (event.target == biamodal) {
+                                                    biamodal.style.display = "none";
+                                                }
+                                                if (event.target == NgotModal) {
+                                                    NgotModal.style.display = "none";
+                                                }
+                                                if (event.target == nuocSuoiModal) {
+                                                    nuocSuoiModal.style.display = "none";
+                                                }
+                                                if (event.target == otherDrinkModal) {
+                                                    otherDrinkModal.style.display = "none";
+                                                }
+                                                if (event.target == milkModal) {
+                                                    milkModal.style.display = "none";
+                                                }
+                                                if (event.target == milkdacModal) {
+                                                    milkdacModal.style.display = "none";
+                                                }
+                                            }
+                                                        $(document).ready(function(){
+                                                $('.dropdown a.test').on("click", function(e){
+                                                    $(this).next('ul').toggle();
+                                                    e.stopPropagation();
+                                                    e.preventDefault();
+                                                });
+                                                });
+                                                $('a[href="#bia"]').click(function(){
+                                                    biamodal.style.display = "block";
+                                                });
+                                                $('a[href="#nuocngot"]').click(function(){
+                                                    NgotModal.style.display = "block";
+                                                });
+                                                
+                                                $('a[href="#nuocsuoi"]').click(function(){
+                                                    nuocSuoiModal.style.display = "block";
+                                                });
+                                                $('a[href="#douongkhac"]').click(function(){
+                                                    otherDrinkModal.style.display = "block";
+                                                });
+                                                $('a[href="#suatuoi"]').click(function(){
+                                                    milkModal.style.display = "block";
+                                                });
+                                                $('a[href="#suadac"]').click(function(){
+                                                    milkdacModal.style.display = "block";
+                                                });
+                                            // $( "select" ) .change(function () {    
+                                            // document.getElementById("loc").innerHTML="You selected: "+document.getElementById("select2").value;       
+                                            // }); 
+                                        </script>
+                                        <br>
+                                    </div>
+
+                                </div>
+                                <!-- /.row -->
+                        </div>
+                        <!-- /.col-lg-9 -->
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container -->
+
+
+
+            

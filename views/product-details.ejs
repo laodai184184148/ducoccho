@@ -1,0 +1,285 @@
+<link rel="stylesheet" href="/assets/css/animate.css">
+<link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/assets/css/jquery-ui.css">
+<link rel="stylesheet" href="/assets/css/chosen.min.css">
+<link rel="stylesheet" href="/assets/css/ionicons.min.css">
+<link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+<link rel="stylesheet" href="/assets/css/material-design-iconic-font.min.css">
+<link rel="stylesheet" href="/assets/css/meanmenu.min.css">
+<link rel="stylesheet" href="/assets/css/bundle.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/responsive.css">
+<script src="/assets/js/vendor/modernizr-2.8.3.min.js"></script>
+
+<body>
+
+    <%- include('partials/navigation.ejs')%>
+    <div class="table_primary_block pt-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-12">
+                    <div class="product-flags">
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="tabone" role="tabpanel">
+                                <div class="product_tab_img">
+                                    <a href="#"><img src="<%= prod.imageURL%>" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="tabtwo" role="tabpanel">
+                                <div class="product_tab_img">
+                                    <a href="#"><img src="<%= prod.imageURL%>" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="tabthree" role="tabpanel">
+                                <div class="product_tab_img">
+                                    <a href="#"><img src="<%= prod.imageURL%>" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="products_tab_button">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-12">
+                    <div class="product__details_content">
+                        <div class="demo_product">
+                            <h2><%= prod.title%></h2>
+                            <p>Made in <%= prod.madein%></p>
+                        </div>
+                        <div class="product_comments_block">
+                            <div class="comments_note clearfix">
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                            </div>
+                            <div class="comments_advices">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>
+                                            Đánh giá</a></li>
+                                    <li><a href="#"><i class="fa fa-pencil"></i>Bình luận </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="current_price">
+                            <span>$<%= prod.price%></span>
+                        </div>
+                        <div class="product_information">
+                            <div id="product_description_short">
+                                <p><%= prod.description%></p>
+                            </div>
+                            </select>
+                            <div class="quickview_plus_minus">
+
+                                <div class="add_button">
+                                    <button type="submit"> Thêm vào giỏ</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-availability">
+                            <span id="availability">
+                                <i class="zmdi zmdi-check"></i>
+                                Còn hàng
+                            </span>
+                        </div>
+                        <div class="social-sharing">
+                            <span>Share</span>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="block-reassurance">
+                            <ul>
+                                <li>
+                                    <img src="/assets/img/cart/cart1.png" alt="">
+                                    <span>Chứng nhận an toàn vệ sinh thực phẩm</span>
+                                </li>
+                                <li>
+                                    <img src="/assets/img/cart/cart2.png" alt="">
+                                    <span>Nhận hàng trong 4h</span>
+                                </li>
+                                <li>
+                                    <img src="/assets/img/cart/cart3.png" alt="">
+                                    <span>Thanh toán khi nhận hàng</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="product_page_tab ptb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="product_tab_button">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+                            <li>
+                                <a class=" tav_past" id="profile-tab" data-toggle="tab"
+                                    href="#details<%= prod.category%>" role="tab" aria-controls="details"
+                                    aria-selected="false">Thông tin</a>
+                            </li>
+                            <li>
+                                <a class=" tav_past" id="contact-tab" data-toggle="tab" href="#Reviews<%= prod.title%>"
+                                    role="tab" aria-controls="Reviews" aria-selected="false">Reviews</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade" id="detailsbeer" role="tabpanel">
+                            <div class="product-details">
+                                <hr>
+                                <label for="title">Tên sản Phẩm : <span><%= prod.title%></span></label>
+                                <hr>
+                                <label for="brand">Thương Hiệu : <span><%= prod.brand%></span></label>
+                                <hr>
+                                <label for="type">Loại sản phẩm : <span>Bia</span></label>
+                                <hr>
+                                <label for="acohol">Nồng độ cồn : <span><%= prod.alcohol%>%</span></label>
+                                <hr>
+                                <label for="ingredient">Thể tích : <span><%= prod.volume_weight%></span></label>
+                                <hr>
+                                <label for="ingredient">Lưu ý : <span><%= prod.careful%></span></label>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="Reviews<%= prod.title%>" role="tabpanel">
+                            <div class="product_comments_block_tab">
+                                <div class="comment_clearfix">
+                                    <div class="comment_author">
+                                        <span>Quỳnh Anh</span>
+                                        <div class="star_content clearfix">
+                                            <ul>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                    <div class="comment_author_infos">
+                                        <strong>Rất Tuyệt</strong>
+                                        <br>
+                                        <em>05/08/2018</em>
+                                    </div>
+                                </div>
+                                <div class="review">
+                                    <p><a href="#">Viết đánh giá</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade" id="detailssoftdrink" role="tabpanel">
+                            <div class="product-details">
+                                <hr>
+                                <label for="title">Tên sản Phẩm : <span><%= prod.title%></span></label>
+                                <hr>
+                                <label for="brand">Thương Hiệu : <span><%= prod.brand%></span></label>
+                                <hr>
+                                <label for="ingredient">Thể tích : <span><%= prod.volume_weight%></span></label>
+                                <hr>
+                                <label for="ingredient">Lưu ý : <span><%= prod.careful%></span></label>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="Reviews<%= prod.title%>" role="tabpanel">
+                            <div class="product_comments_block_tab">
+                                <div class="comment_clearfix">
+                                    <div class="comment_author">
+                                        <span>Quỳnh Anh</span>
+                                        <div class="star_content clearfix">
+                                            <ul>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                    <div class="comment_author_infos">
+                                        <strong>Rất Tuyệt</strong>
+                                        <br>
+                                        <em>05/08/2018</em>
+                                    </div>
+                                </div>
+                                <div class="review">
+                                    <p><a href="#">Viết đánh giá</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade" id="details<%= prod.category%>" role="tabpanel">
+                            <div class="product-details">
+                                <hr>
+                                <label for="title">Tên sản Phẩm : <span><%= prod.title%></span></label>
+                                <hr>
+                                <label for="brand">Thương Hiệu : <span><%= prod.brand%></span></label>
+                                <hr>
+                                <label for="type">Loại sản phẩm : <span>Bia</span></label>
+                                <hr>
+                                <label for="acohol">Nồng độ cồn : <span><%= prod.alcohol%>%</span></label>
+                                <hr>
+                                <label for="ingredient">Thể tích : <span><%= prod.volume_weight%></span></label>
+                                <hr>
+                                <label for="ingredient">Lưu ý : <span><%= prod.careful%></span></label>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="Reviews<%= prod.title%>" role="tabpanel">
+                            <div class="product_comments_block_tab">
+                                <div class="comment_clearfix">
+                                    <div class="comment_author">
+                                        <span>Quỳnh Anh</span>
+                                        <div class="star_content clearfix">
+                                            <ul>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                    <div class="comment_author_infos">
+                                        <strong>Rất Tuyệt</strong>
+                                        <br>
+                                        <em>05/08/2018</em>
+                                    </div>
+                                </div>
+                                <div class="review">
+                                    <p><a href="#">Viết đánh giá</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/assets/js/vendor/jquery-1.12.0.min.js"></script>
+    <script src="/assets/js/popper.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="/assets/js/isotope.pkgd.min.js"></script>
+    <script src="/assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/js/jquery-ui.js"></script>
+    <script src="/assets/js/jquery.counterup.min.js"></script>
+    <script src="/assets/js/waypoints.min.js"></script>
+    <script src="/assets/js/ajax-mail.js"></script>
+    <script src="/assets/js/owl.carousel.min.js"></script>
+    <script src="/assets/js/plugins.js"></script>
+    <script src="/assets/js/main.js"></script>
+</body>
+
+<%- include('partials/end.ejs')%>

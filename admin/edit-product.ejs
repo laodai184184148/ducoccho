@@ -1,0 +1,378 @@
+<%- include('admin_layouts/navbar.ejs')%>
+<section id="breadcrumb">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="#">Dashboard</a></li>
+            <li class="active">Edit Pages</li>
+        </ol>
+    </div>
+</section>
+
+<body>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <%- include('admin_layouts/navbar_left.ejs')%>
+            </div>
+
+            <div class="col-lg-9">
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h2>Edit Product</h2>
+                        <%if (product.category=="beer") { %>
+                                <form action="/admin/edit-product" method="POST">
+                                    <input type="hidden" name="id" value="<%= product._id%>">
+                                    <div class="form-group">
+                                        <label for="Title">Title</label>
+                                        <input class="form-control" id="title" name="title" value="<%= product.title%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="imageURL">Image URL</label>
+                                        <input class="form-control" id="imageURL" name="imageURL"
+                                            value="<%= product.imageURL%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="category">Category</label>
+                                        <input class="form-control" id="category" name="category" value="Bia"
+                                            readonly="true">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="price">Price</label>
+                                        <input class="form-control" id="price" name="price" value="<%= product.price%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="brand">Brand</label>
+                                        <input class="form-control" id="brand" name="brand" value="<%= product.brand%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="alcohol">Alcohol</label>
+                                        <input class="form-control" id="alcohol" name="alcohol"
+                                            value="<%= product.alcohol%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="volume">Volume</label>
+                                        <input class="form-control" id="volume" name="volume"
+                                            value="<%= product.volume_weight%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ingredient">IngredientL</label>
+                                        <input class="form-control" id="ingredient" name="ingredient"
+                                            value="<%= product.ingredient%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="special">Special</label>
+                                        <input class="form-control" id="special" name="special"
+                                            value="<%= product.special%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="careful">Careful</label>
+                                        <input class="form-control" id="careful" name="careful"
+                                            value="<%= product.careful%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="policy">Policy</label>
+                                        <input class="form-control" id="policy" name="policy"
+                                            value="<%= product.policy%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="description">Description</label>
+                                        <textarea class="form-control" name="description"
+                                            id="description"><%= product.description%></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                        <% }else  if(product.category=="softdrink") { %>
+                                <form action="/admin/edit-product" method="POST">
+                                    <input type="hidden" name="id" value="<%= product._id%>">
+                                    <div class="form-group">
+                                        <label for="Title">Title</label>
+                                        <input class="form-control" id="title" name="title" value="<%= product.title%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="imageURL">Image URL</label>
+                                        <input class="form-control" id="imageURL" name="imageURL"
+                                            value="<%= product.imageURL%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="category">Category</label>
+                                        <input class="form-control" id="category" name="category" value="Nước Ngọt"
+                                            readonly="true">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="price">Price</label>
+                                        <input class="form-control" id="price" name="price" value="<%= product.price%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="brand">Brand</label>
+                                        <input class="form-control" id="brand" name="brand" value="<%= product.brand%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="volume">Volume</label>
+                                        <input class="form-control" id="volume" name="volume"
+                                            value="<%= product.volume_weight%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ingredient">IngredientL</label>
+                                        <input class="form-control" id="ingredient" name="ingredient"
+                                            value="<%= product.ingredient%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="special">Special</label>
+                                        <input class="form-control" id="special" name="special"
+                                            value="<%= product.special%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="careful">Careful</label>
+                                        <input class="form-control" id="careful" name="careful"
+                                            value="<%= product.careful%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="policy">Policy</label>
+                                        <input class="form-control" id="policy" name="policy"
+                                            value="<%= product.policy%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="description">Description</label>
+                                        <textarea class="form-control" name="description"
+                                            id="description"><%= product.description%></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                                <% }else  if(product.category=="otherdrink") { %>
+                                        <form action="/admin/edit-product" method="POST">
+                                            <input type="hidden" name="id" value="<%= product._id%>">
+                                        <div class="form-group">
+                                            <label for="Title">Title</label>
+                                            <input class="form-control" id="title" name="title" value="<%= product.title%>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="imageURL">Image URL</label>
+                                            <input class="form-control" id="imageURL" name="imageURL" value="<%= product.imageURL%>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="price">Price</label>
+                                            <input class="form-control" id="price" name="price" value="<%= product.price%>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="brand">Brand</label>
+                                            <input class="form-control" id="brand" name="brand" value="<%= product.brand%>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="madein">Made in</label>
+                                            <input class="form-control" id="madein" name="madein" value="<%= product.madein%>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="congdung">Cong dung</label>
+                                            <input class="form-control" id="congdung" name="congdung" value="<%= product.congdung%>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="ingredient">Ingredient</label>
+                                            <input class="form-control" id="ingredient" name="ingredient" value="<%= product.ingredient%>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cachdung">Cach dung</label>
+                                            <input class="form-control" id="cachdung" name="cachdung" value="<%= product.cachdung%>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="lieudung">Lieu Dung</label>
+                                            <input class="form-control" id="lieudung" name="lieudung" value="<%= product.lieudung%>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="careful">Careful</label>
+                                            <input class="form-control" id="careful" name="careful" value="<%= product.careful%>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="volume">weight</label>
+                                            <input class="form-control" id="volume" name="volume" value="<%= product.volume_weight%>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="description">Description</label>
+                                            <textarea class="form-control" name="description" id="description"><%= product.description%></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                                    </form>
+                                    
+                        <% }else  if(product.category=="water") { %>
+                                <form action="/admin/edit-product" method="POST">
+                                    <input type="hidden" name="id" value="<%= product._id%>">
+                                    <div class="form-group">
+                                        <label for="Title">Title</label>
+                                        <input class="form-control" id="title" name="title" value="<%= product.title%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="imageURL">Image URL</label>
+                                        <input class="form-control" id="imageURL" name="imageURL"value="<%= product.imageURL%>">
+                                            value="<%= product._id%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="category">Category</label>
+                                        <input class="form-control" id="category" name="category" value="Nước Lọc">
+                                            readonly="true">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="price">Price</label>
+                                        <input class="form-control" id="price" name="price" value="<%= product.price%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="brand">Brand</label>
+                                        <input class="form-control" id="brand" name="brand" value="<%= product.brand%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="madein">Made in</label>
+                                        <input class="form-control" id="madein" name="madein" value="<%= product.madein%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="volume">Volume</label>
+                                        <input class="form-control" id="volume" name="volume" value="<%= product.volume_weight%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ingredient">Ingredient</label>
+                                        <input class="form-control" id="ingredient" name="ingredient"
+                                            value="<%= product.ingredient%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="special">Special</label>
+                                        <input class="form-control" id="special" name="special"
+                                            value="<%= product.special%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="quantity">quantity</label>
+                                        <input class="form-control" id="quantity" name="quantity"
+                                            value="<%= product.quantity%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="policy">Policy</label>
+                                        <input class="form-control" id="policy" name="policy" value="<%= product.policy%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="description">Description</label>
+                                        <textarea class="form-control" name="description"
+                                            id="description"><%= product.description%></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                        
+                        <% }else  if(product.category=="milk") { %>
+                                <form action="/admin/edit-product" method="POST">
+                                    <input type="hidden" name="id" value="<%= product._id%>">
+                                    <div class="form-group">
+                                        <label for="Title">Title</label>
+                                        <input class="form-control" id="title" name="title" value="<%= product.title%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="imageURL">Image URL</label>
+                                        <input class="form-control" id="imageURL" name="imageURL"value="<%= product.imageURL%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="category">Category</label>
+                                        <input class="form-control" id="category" name="category" value="Sữa Tươi"
+                                            readonly="true">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="price">Price</label>
+                                        <input class="form-control" id="price" name="price"value="<%= product.price%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="brand">Brand</label>
+                                        <input class="form-control" id="brand" name="brand"value="<%= product.brand%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="madein">Made in</label>
+                                        <input class="form-control" id="madein" name="madein"value="<%= product.madein%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="huongdan">Huong Dan</label>
+                                        <input class="form-control" id="huongdan" name="huongdan"value="<%= product.huongdan%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ingredient">Ingredient</label>
+                                        <input class="form-control" id="ingredient" name="ingredient"value="<%= product.ingredient%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="doituong">Doi Tuong</label>
+                                        <input class="form-control" id="doituong" name="doituong"value="<%= product.doituong%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="volume">Volume</label>
+                                        <input class="form-control" id="volume" name="volume"value="<%= product.volume_weight%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="type">Type</label>
+                                        <input class="form-control" id="type" name="type"value="<%= product.type%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="description">Description</label>
+                                        <textarea class="form-control" name="description" id="description"><%= product.description%></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                        <% }else  if(product.category=="milkdac") { %>
+                                <form action="/admin/edit-product" method="POST">
+                                    <input type="hidden" name="id" value="<%= product._id%>">
+                                    <div class="form-group">
+                                        <label for="Title">Title</label>
+                                        <input class="form-control" id="title" name="title"value="<%= product.type%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="imageURL">Image URL</label>
+                                        <input class="form-control" id="imageURL" name="imageURL"value="<%= product.imageURL%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="category">Category</label>
+                                        <input class="form-control" id="category" name="category" value="Sữa Đặc"
+                                            readonly="true">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="price">Price</label>
+                                        <input class="form-control" id="price" name="price"value="<%= product.price%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="brand">Brand</label>
+                                        <input class="form-control" id="brand" name="brand"value="<%= product.brand%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="madein">Made in</label>
+                                        <input class="form-control" id="madein" name="madein"value="<%= product.madein%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="dodam">Do Dam</label>
+                                        <input class="form-control" id="dodam" name="dodam"value="<%= product.dodam%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ingredient">Ingredient</label>
+                                        <input class="form-control" id="ingredient" name="ingredient"value="<%= product.ingredient%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="doituong">Doi Tuong</label>
+                                        <input class="form-control" id="doituong" name="doituong"value="<%= product.doituong%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="volume">Volume</label>
+                                        <input class="form-control" id="volume" name="volume"value="<%= product.volume_weight%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="type">Type</label>
+                                        <input class="form-control" id="type" name="type"value="<%= product.type%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="description">Description</label>
+                                        <textarea class="form-control" name="description" id="description"><%= product.description%></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                        <% } %>
+                        <br>
+                    </div>
+
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.col-lg-9 -->
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->

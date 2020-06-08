@@ -1,0 +1,46 @@
+<%- include('admin_layouts/navbar.ejs')%>
+    <body>
+        
+            <!-- Page Content -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <%- include('admin_layouts/navbar_left.ejs')%>
+                      </div>
+                        <div class="col-lg-9">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h2>Send Messages</h2>  
+                                                                           
+                                        <form action="/admin/users/send_messages" method="POST">
+                                            <br>
+                                            <label for="message">User Name</label> 
+                                            <br>
+                                            <input type="text" name="value" value = "<%= u.name%>" disabled>
+                                            
+                                            <div class="form-group">
+                                                <br>
+                                                <label for="message">Messages</label>
+                                                <br>
+                                                <input class="form-control" id="message" name="message">
+                                            </div>
+                                          
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </form> 
+                                       
+                                        <br>
+                                    </div>
+
+                                </div>
+                                <!-- /.row -->
+                        </div>
+                        <!-- /.col-lg-9 -->
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container -->
+
+
+
+            

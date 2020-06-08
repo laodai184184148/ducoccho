@@ -1,0 +1,183 @@
+
+<%- include('partials/head.ejs')%>
+
+    <body>
+        
+        <%- include('partials/navigation.ejs')%>
+
+            <!-- Page Content -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3" style="margin-top: -70px;">
+                        <%- include('partials/sidebar.ejs')%>
+                    </div>
+                    
+                        <div class="col-lg-9">
+                            <%- include('partials/carousel.ejs')%>   
+                            
+
+                                <div class="row">
+
+                                    <% for(let p of prods) {%>
+
+                                        <div class="col-lg-4 col-md-6 mb-4" id="<%= p.category%>">
+                                            <div class="single__product" >
+                                                <div class="single_product__inner" >
+                                                    <span class="new_badge">New</span>
+                                                    <span class="discount_price">-5%</span>
+                                                    <div class="product_img" >
+                                                        <a >
+                                                            <img src="<%= p.imageURL%> " style="max-height: 350px;"alt="">
+                                                        </a>
+                                                    </div>
+                                                    <div class="product__content text-center">
+                                                        <div class="produc_desc_info">
+                                                            <div class="product_title">
+                                                                <h4><a href="/products/<%=p._id%>"><%= p.title%></a></h4>
+                                                            </div>
+                                                            <div class="product_price">
+                                                                <p>$<%= p.price%></p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product__hover">
+                                                            <ul>
+                                                                <li><a href="/add-to-cart/<%=p._id%>"><i class="ion-android-cart"></i></a></li>
+                                                                <li><a class="cart-fore" href="#" data-toggle="modal" data-target="#a<%=p._id%>"  title="Quick View" ><i class="ion-android-open"></i></a></li>
+
+                                                                <li><a href="/products/<%=p._id%>"><i class="ion-clipboard"></i></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <%
+                                    }
+                                    %>
+
+                                </div>
+                                <%- include('partials/end.ejs')%>
+                                <!-- /.row -->
+                        </div>
+                        <!-- /.col-lg-9 -->
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <% for(let p of prods) {%>
+            <div class="modal fade" id="a<%=p._id%>" tabindex="-1" role="dialog"  aria-hidden="true">
+                
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                        <div class="modal-body shop">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-5 col-md-5 col-sm-12">
+                                        <div class="product-flags madal">  
+                                            <div class="tab-content" id="pills-tabContent">
+                                                <div class="tab-pane fade show active" id="imgeone" role="tabpanel"  >
+                                                    <div class="product_tab_img">
+                                                        <a href="#"><img src="<%= p.imageURL%>" alt=""></a>    
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="imgetwo" role="tabpanel">
+                                                    <div class="product_tab_img">
+                                                        <a href="#"><img src="<%= p.imageURL%>" alt=""></a>    
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="imgethree" role="tabpanel">
+                                                    <div class="product_tab_img">
+                                                        <a href="#"><img src="<%= p.imageURL%>" alt=""></a>    
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="products_tab_button  modals">    
+                                            </div>    
+                                        </div>  
+                                    </div> 
+                                    <div class="col-lg-7 col-md-7 col-sm-12">
+                                        <div class="modal_right">
+                                            <div class="shop_reviews">
+                                                <div class="demo_product">
+                                                    <h2><%= p.title%></h2> 
+                                                </div>
+                                                <div class="current_price"> 
+                                                    <span class="regular_price" >$<%= p.price%></span>    
+                                                </div>
+                                                <div class="product_information product_modal">                                                        
+                                                       <div class="quickview_plus_minus">
+                                                            <div class="quickview_plus_minus_inner">
+                                                              
+                                                                    <input type="text" value="02" name="qtybutton" class="cart-plus-minus-box">
+                                                                </div> -->
+                                                               <div class="add_button add_modal">
+                                                                    <button type="submit" h> Thêm Vào Giỏ</button> 
+                                                                </div>
+                                                            </div>    
+                                                        </div> 
+                                                        
+                                                        <div class="cart_description">
+														<p><%= p.description%></p>    
+                                                        </div> 
+                                                    </div>
+                                                </div>   
+                                            </div>    
+                                        </div>    
+                                    </div>    
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="social-share">
+                                            <h3>Share this product</h3>
+                                            <ul>
+                                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                            </ul>    
+                                        </div>    
+                                    </div>    
+                                </div>     
+                            </div>
+                        </div>    
+                    </div>
+                  
+                </div>
+            </div>
+              
+        
+            <%
+        }
+        %>
+        <script>
+            $(document).ready(function () {
+              //set initial state.
+              $('input').change(function () {
+                  var arr=['beer','water','otherdrink','milk','milkdac','softdrink'];
+                if (this.checked) {
+                    var key=this.value;
+                    var filtered = arr.filter(function(value, index, arr){ return value !=key;})
+                    filtered.forEach(function(element) {
+                        $("div#"+element).hide();
+                        });
+                     
+                }else{
+                    if (!this.checked) {
+                    var key=this.value;
+                    var filtered = arr.filter(function(value, index, arr){ return value !=key;})
+                    filtered.forEach(function(element) {
+                        $("div#"+element). toggle();
+                        });
+                }
+            }
+              });
+            });
+          </script>
+            <!-- /.container -->
+
+           

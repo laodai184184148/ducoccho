@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+      font-family: Arial;
+      font-size: 17px;
+      padding: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .row {
+
+      display: -ms-flexbox;
+      /* IE10 */
+      display: flex;
+      -ms-flex-wrap: wrap;
+      /* IE10 */
+      flex-wrap: wrap;
+      margin: 0 -16px;
+    }
+
+    .col-25 {
+      -ms-flex: 25%;
+      /* IE10 */
+      flex: 25%;
+    }
+
+    .col-50 {
+      -ms-flex: 50%;
+      /* IE10 */
+      flex: 50%;
+    }
+
+    .col-75 {
+      -ms-flex: 75%;
+      /* IE10 */
+      flex: 75%;
+    }
+
+    .col-25,
+    .col-50,
+    .col-75 {
+      padding: 0 16px;
+    }
+
+    .container {
+      padding: 5px 20px 15px 20px;
+      border-radius: 3px;
+    }
+
+    input[type=text] {
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    label {
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .icon-container {
+      margin-bottom: 20px;
+      padding: 7px 0;
+      font-size: 24px;
+    }
+
+    .btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      width: 100%;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 17px;
+    }
+
+    .btn:hover {
+      background-color: #45a049;
+    }
+
+    a {
+      color: #2196F3;
+    }
+
+    hr {
+      border: 1px solid lightgrey;
+    }
+
+    span.price {
+      float: right;
+      color: grey;
+    }
+
+    /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+    @media (max-width: 800px) {
+      .row {
+        flex-direction: column-reverse;
+      }
+
+      .col-25 {
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <%- include('partials/navigation.ejs')%>
+
+  <h2>Checkout Form</h2>
+
+  <div class="row">
+    <div class="col-75">
+      <div class="container">
+
+          <div class="row">
+             <div class="col-50">
+
+              <h3>Thông Tin Người Mua Hàng</h3>
+              <%- include('partials/messages.ejs')%>
+              <form action="/cart/checkout" method="POST">
+                <label for="fname"><i class="fa fa-user"></i> Họ Và Tên </label>
+                <input type="text" id="fname" name="fname" placeholder="John M. Doe">
+
+                <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                <input type="text" id="email" name="email" placeholder="john@example.com">
+
+                <label for="phone"><i class="fa fa-phone"></i> Số Điện Thoại</label>
+                <input type="text" id="phone" name="phone" placeholder="0123456789">
+                <h3>Địa Chỉ Nhận Hàng</h3>
+                <label for="city"><i class="fa fa-institution"></i> Thành Phố </label>
+                <input type="text" id="city" name="city" placeholder="Hồ Chí Minh">
+
+                <label for="district"><i class="fa fa-institution"></i> Quận </label>
+                <input type="text" id="district" name="district" placeholder="Thủ Đức">
+
+                <label for="sdis"><i class="fa fa-institution"></i> Phường/Xã </label>
+                <input type="text" id="sdis" name="sdis" placeholder="Tam Hiệp">
+
+                <label for="street"><i class="fa fa-institution"></i> Tên Đường </label>
+                <input type="text" id="street" name="street" placeholder="Võ Văn Kiệt">
+
+                <label for="houseNumber"><i class="fa fa-institution"></i> Số Nhà </label>
+                <input type="text" id="houseNumber" name="houseNumber" placeholder="689B">
+                <h3>Thời Gian Nhận Hàng </h3>
+                <label for="date"><i class="fa fa-calendar"></i> Ngày </label>
+                <input type="date" value="2020-05-05" id="date" name="date">
+                <label for="hour"><i class="fa fa-calendar"></i> Giờ </label>
+                <input type="time" id="hour" name="hour" value="13:30">
+                  <div class="col-50">
+                    <label for="payment_method" class="payment_method" name="payment_method" id="payment_method">Chọn
+                      Phương Thức Thanh Toán</label>
+                    <select id="payment_method" name="payment_method">
+                      <option name="sameadr" id="sameadr" onclick="myFunction()">Thanh Toán Khi Nhận Hàng</option>
+                      <option name="online" id="other" online="myFunction()">Thanh Toán Online</option>
+                    </select>
+                    <div class="col-50">
+                    </div>
+                  </div>
+                <button type="submit" class="btn btn-primary"> Continue to checkout</button>
+              </form>
+            </div> 
+            <div class="col-50">
+            <div class="cart" style="position: fixed;
+              top: 0;
+              width: 100%;margin-top:100px;">
+              <h3>Giỏ Hàng <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i>
+                  <b><%=carrt.totalItems%></b></span></h3>
+              <% for(let p of products) {%>
+              <p><a href="#"><%=p.item.title%></a> <span class="price"><%=p.item.price%></span></p>
+              <%
+              }
+              %>
+              <hr>
+              <p>Total <span class="price" style="color:black"><b>$<%=carrt.totalPrice%></b></span></p>
+            </div>
+
+            </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  <script>
+    function myFunction() {
+      // Get the checkbox
+    }
+  </script>
+</body>
+
+</html>

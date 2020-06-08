@@ -1,0 +1,57 @@
+<style>
+    .s  {
+        height:2px;
+        background-color: rgb(0, 195, 255);
+        }
+</style>
+<%- include('admin_layouts/navbar.ejs')%>
+<section id="breadcrumb">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a href="#">Dashboard</a></li>
+        <li class="active">Product Detail</li>
+      </ol>
+    </div>
+  </section>
+    <body>
+        
+            <!-- Page Content -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <%- include('admin_layouts/navbar_left.ejs')%>
+                    </div>
+                        <div class="col-lg-9">
+                            
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h1>
+                                            <%= prod.title%>
+                                        </h1><p style="width: 120px;min-height: 120px;max-height: auto;"><img src="<%= prod.imageURL%>" style="max-width: 300px;"/></p>
+                                        <p>Price:
+                                            <%= prod.price%>
+                                        </p>
+                                        <hr class="s">
+                                        <p>Description:
+                                            <%= prod.description%>
+                                        </p>
+                                        <hr class="s">
+                                        <p>Brand:
+                                            <%= prod.brand%>
+                                        </p>
+                                        <hr class="s">
+                                        <p>Ingredient:
+                                            <%= prod.ingredient%>
+                                        </p>
+                                        <br>
+                                    </div>
+
+                                </div>
+                                <!-- /.row -->
+                        </div>
+                        <!-- /.col-lg-9 -->
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container -->

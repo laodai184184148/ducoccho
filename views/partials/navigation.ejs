@@ -1,0 +1,72 @@
+<!-- Navigation -->
+<style>
+    * {
+  box-sizing: border-box;
+}
+
+/* Style the search field */
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+/* Style the submit button */
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 9px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+/* Clear floats */
+
+</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<nav class="navbar navbar-expand-lg  bg-light fixed-top navbar-fixed-top bg-transparent" style="background-color:cyan!important">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="/">
+                <img src="/assets/img/logo/logo.png" alt="">
+            </a>
+        </div>
+        <div class="navbar-header">
+          <%if (pageTitle != 'checkout'&&pageTitle != 'Search'&&pageTitle != 'Search result') { %>
+            <form class="example" action="/search" method="POST" style="margin:auto;max-width:300px">
+              <input type="text" placeholder="Bạn Muốn Tìm Gì...." name="search" id="search" value="<%= typeof key != 'undefined' ? key : '' %>">
+              <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+            <% }  %>
+            
+
+        </div>
+        <form class="form-inline">
+           
+          </form>
+                <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/order"><span class="	glyphicon glyphicon-bed"></span>  Hơn Hàng Của Bạn</a></li>
+                        <li><a href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span> Giỏ Hàng</a></li>
+                        
+                        <%if (user==null) { %>
+                            <li><a href="/users/login"><span class="glyphicon glyphicon-log-in"></span> Đăng Nhập</a></li>
+                        <% }else  { %>
+                            <li><a href="/users/logout"><span class="glyphicon glyphicon-log-out"></span> Đăng Xuất</a></li>
+                            <li><a href="/users/profile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                        <% } %>
+                </ul>
+                
+    </div>
+</nav>

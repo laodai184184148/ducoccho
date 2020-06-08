@@ -1,0 +1,40 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<%- include('partials/head.ejs')%>
+
+<body>
+    <%- include('partials/navigation.ejs')%>
+    <div class="container" >
+        <div class="row">
+          <div class="col-sm">
+          </div>
+          <div class="col-sm" style="border: solid 1px; margin-top: 50px;text-align: center; font-size: 150%; padding: 100px;">
+            <%if (pageTitle=='Search') { %>
+            <div style="margin-top:-50px;margin-bottom: 50px;"><span>Để xem "Đơn hàng của bạn" vui lòng
+                nhập Số điện thoại đã đặt hàng</span></div>
+                <%- include('partials/messages.ejs')%>
+                    <hr>    
+                <form action="/order/findorder" method="POST">
+                  <input class="form-control" type="tel" placeholder="xx-xxx-xxx-xxx" id="phone" name="phone">
+                </form>
+                <% }else  if (pageTitle=='Search result') { %>
+                  <%if (typeof ord != 'undefined') { %>
+                    <div style="margin-top:-50px;margin-bottom: 50px;"><span>Số điện thoại <%= key%> không có đơn hàng nào</span></div>
+                    <% }else  if (ord!=null) { %>
+                    <div style="margin-top:-50px;margin-bottom: 50px;"><span>Đơn hàng của số điện thoại <%= key%></span></div>
+                    <div>
+                      <% for(let o of ord) {%>  
+                      <li><a href=""></a>Người đặt hàng:<%= o.cusdetails.name%> , Đơn hàng được tạo ngày :<%= o.create_date%></li>
+                    </div>
+                    <% } %>
+                    <% } %>
+                <% } %>
+          </div>
+          <div class="col-sm">
+          </div>
+        </div>
+      </div>
+
+ 
+       
